@@ -1,15 +1,15 @@
 const express = require('express');
 const app = express();
 const PORT = 8080;
-const signupRouter = require('./routes/signup');
-const postsRouter = require('./routes/posts');
-const commentsRouter = require('./routes/comments');
+const signupRouter = require('./routes/signup.routes');
+const postsRouter = require('./routes/posts.routes');
+const commentsRouter = require('./routes/comments.routes');
 
 
 
 app.use(express.json());
 
-app.use([signupRouter,postsRouter,commentsRouter]);
+app.use("/",[signupRouter,postsRouter,commentsRouter]);
 
 
 app.listen(PORT, () => {
