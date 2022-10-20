@@ -28,7 +28,7 @@ class CommentService {
         
     }
     findCommentById = async(commentId)=>{
-        const comment = await this.CommentsController.findCommentById(commentId);
+        const comment = await this.commentRepository.findCommentById(commentId);
         return {
             commentId:comment.commentId,
             nickname:findPost.nickname,
