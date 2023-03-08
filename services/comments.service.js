@@ -30,12 +30,12 @@ class CommentService {
     };
   };
 
-  updateComment = async (commentId, nickname, content) => {
+  updateComment = async (commentId, user, content) => {
     await this.commentRepository.updateComment(commentId, nickname, content);
 
     const findComment = await this.commentRepository.findCommentById(commentId);
     if (!findComment) throw new Error("Comment doesn't exist");
-    if (findComment.user !== nickname) {
+    if (findComment.user !== user) {
       return "권한이 없습니다.";
     }
 
