@@ -46,6 +46,7 @@ class PostRepository {
   createLike = async (postsId, nickname) => {
     const createLike = await Likes.create({ user: nickname, like: postsId });
   };
+
   countLike = async (postsId) => {
     const countLike = await Posts.increment(
       { likeSum: 1 },
@@ -67,9 +68,7 @@ class PostRepository {
     return discountLike;
   };
   findLikedPosts = async (nickname) => {
-    console.log(nickname);
     const likes = await Likes.findAll({ where: { user: nickname } });
-    console.log(likes, "표식");
     return likes;
   };
 }

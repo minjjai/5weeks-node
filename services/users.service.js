@@ -8,7 +8,7 @@ class UserService {
   registerUser = async (nickname, password) => {
     const bcrypt = require("bcrypt");
 
-    const hash = await bcrypt.hash(password, 12);
+    const hash = await bcrypt.hash(password, 10);
 
     // 저장소(Repository)에게 데이터를 요청합니다.
     const registerUser = await this.userRepository.registerUser(nickname, hash);
